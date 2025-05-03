@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudio de Productos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Catálogo de Productos</h1>
+
+        <!-- Acordeón -->
+        <div class="accordion">
+            <button class="accordion-item">Productos Disponibles</button>
+            <div class="panel">
+                <table>
+                    <tr>
+                        <th>ID</th>
+                        <th>Título</th>
+                        <th>Precio</th>
+                        <th>Imagen</th>
+                    </tr>
+                    {% for producto in productos %}
+                    <tr>
+                        <td>{{ producto.id }}</td>
+                        <td>{{ producto.title }}</td>
+                        <td>${{ producto.price }}</td>
+                        <td><img src="{{ producto.image }}" alt="{{ producto.title }}" class="thumbnail"></td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+
+            <button class="accordion-item">Productos Más Baratos</button>
+            <div class="panel">
+                <table>
+                    <tr>
+                        <th>Título</th>
+                        <th>Precio</th>
+                        <th>Imagen</th>
+                    </tr>
+                    {% for producto in baratos %}
+                    <tr>
+                        <td>{{ producto.title }}</td>
+                        <td>${{ producto.price }}</td>
+                        <td><img src="{{ producto.image }}" alt="{{ producto.title }}" class="thumbnail"></td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+
+            <button class="accordion-item">Productos Más Caros</button>
+            <div class="panel">
+                <table>
+                    <tr>
+                        <th>Título</th>
+                        <th>Precio</th>
+                        <th>Imagen</th>
+                    </tr>
+                    {% for producto in caros %}
+                    <tr>
+                        <td>{{ producto.title }}</td>
+                        <td>${{ producto.price }}</td>
+                        <td><img src="{{ producto.image }}" alt="{{ producto.title }}" class="thumbnail"></td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+
+            <button class="accordion-item">Precio Medio de los Productos</button>
+            <div class="panel">
+                <p>${{ media }}</p>
+            </div>
+
+            <button class="accordion-item">Productos Más Vendidos</button>
+            <div class="panel">
+                <table>
+                    <tr>
+                        <th>Título</th>
+                        <th>Ventas</th>
+                        <th>Imagen</th>
+                    </tr>
+                    {% for producto in vendidos %}
+                    <tr>
+                        <td>{{ producto.title }}</td>
+                        <td>{{ producto.count }}</td>
+                        <td><img src="{{ producto.image }}" alt="{{ producto.title }}" class="thumbnail"></td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+
+            <button class="accordion-item">Productos Mejor Valorados</button>
+            <div class="panel">
+                <table>
+                    <tr>
+                        <th>Título</th>
+                        <th>Rating</th>
+                        <th>Imagen</th>
+                    </tr>
+                    {% for producto in rates %}
+                    <tr>
+                        <td>{{ producto.title }}</td>
+                        <td>{{ producto.rate }}</td>
+                        <td><img src="{{ producto.image }}" alt="{{ producto.title }}" class="thumbnail"></td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Script para manejar el acordeón
+        var acc = document.getElementsByClassName("accordion-item");
+        for (var i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
+        }
+    </script>
+</body>
+</html>

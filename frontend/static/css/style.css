@@ -1,0 +1,98 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #1e3d58;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+
+/* Acordeón */
+.accordion {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.accordion-item {
+    background-color: #1e3d58;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-top: 1px solid #ddd;
+}
+
+.accordion-item:hover {
+    background-color: #3c5a74;
+}
+
+.accordion-item.active {
+    background-color: #3c5a74;
+}
+
+.panel {
+    padding: 10px;
+    display: none;
+    background-color: #f4f4f9;
+    border-top: 1px solid #ddd;
+}
+
+/* Tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #1e3d58;
+    color: white;
+}
+
+td {
+    background-color: #f9f9f9;
+}
+
+tr:nth-child(even) td {
+    background-color: #f1f1f1;
+}
+
+p {
+    font-size: 1.5em;
+    color: #1e3d58;
+    font-weight: bold;
+}
+
+/* Estilo para las miniaturas de las imágenes */
+.thumbnail {
+    width: 50px;
+    height: auto;
+    border-radius: 5px;
+    object-fit: cover;
+}
